@@ -4,7 +4,7 @@ while true
 do
     curl -s localhost:4040/http/in | grep -oP 'tcp://server.natappfree.cc:(\d*)' > proxy
     new=$(git status | grep proxy | wc -l)
-    if [ $new = 1 ]
+    if [ $new -gt 0 ]
     then
         git add proxy
         git commit -m "new proxy - $(date '+%Y-%m-%d %H:%M:%S')"
@@ -16,5 +16,5 @@ do
     else
         echo nothing to do
     fi
-    sleep 3600
+    sleep 60
 done
