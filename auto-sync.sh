@@ -9,7 +9,7 @@ do
         git commit -m "new proxy - $(date '+%Y-%m-%d %H:%M:%S')"
     fi
     push=$(git log --decorate --oneline | head -n 1 | grep "origin/master" | wc -l)
-    if [ $new = 0 ]
+    if [ $push = 0 ]
     then
         git push origin master
     else
