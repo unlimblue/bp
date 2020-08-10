@@ -1,5 +1,7 @@
 #!/bin/bash
-cd /home/sli/natapp/bp
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+echo "Workdir="${DIR}
+cd $DIR
 while true
 do
     curl -s localhost:4040/http/in | grep -oP 'tcp://server.natappfree.cc:(\d*)' > proxy
